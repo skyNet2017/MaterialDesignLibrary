@@ -13,13 +13,13 @@ import android.view.MotionEvent;
 public class LayoutRipple extends CustomView {
 
 	int background;
-	float rippleSpeed = 10f;
+	float rippleSpeedT = 10f;
 	int rippleSize = 3;
 
 	OnClickListener onClickListener;
 	int backgroundColor = Color.parseColor("#FFFFFF");
 
-	Integer rippleColor;
+	Integer rippleColorT;
 	Float xRippleOrigin;
 	Float yRippleOrigin;
 
@@ -47,21 +47,21 @@ public class LayoutRipple extends CustomView {
 		}
 		// Set Ripple Color
 		// Color by resource
-		int rippleColor = attrs.getAttributeResourceValue(MATERIALDESIGNXML,
-				"rippleColor", -1);
-		if (rippleColor != -1) {
-			setRippleColor(getResources().getColor(rippleColor));
+		int rippleColorT = attrs.getAttributeResourceValue(MATERIALDESIGNXML,
+				"rippleColorT", -1);
+		if (rippleColorT != -1) {
+			setrippleColorT(getResources().getColor(rippleColorT));
 		} else {
 			// Color by hexadecimal
-			int background = attrs.getAttributeIntValue(MATERIALDESIGNXML, "rippleColor", -1);
+			int background = attrs.getAttributeIntValue(MATERIALDESIGNXML, "rippleColorT", -1);
 			if (background != -1)
-				setRippleColor(background);
+				setrippleColorT(background);
 			else
-				setRippleColor(makePressColor());
+				setrippleColorT(makePressColor());
 		}
 		
-		rippleSpeed = attrs.getAttributeFloatValue(MATERIALDESIGNXML,
-				"rippleSpeed", 20f);
+		rippleSpeedT = attrs.getAttributeFloatValue(MATERIALDESIGNXML,
+				"rippleSpeedT", 20f);
 	}
 
 	// Set color of background
@@ -72,8 +72,8 @@ public class LayoutRipple extends CustomView {
 		super.setBackgroundColor(color);
 	}
 
-	public void setRippleSpeed(int rippleSpeed) {
-		this.rippleSpeed = rippleSpeed;
+	public void setrippleSpeedT(int rippleSpeedT) {
+		this.rippleSpeedT = rippleSpeedT;
 	}
 
 	// ### RIPPLE EFFECT ###
@@ -140,14 +140,14 @@ public class LayoutRipple extends CustomView {
 		canvas.drawARGB(0, 0, 0, 0);
 		Paint paint = new Paint();
 		paint.setAntiAlias(true);
-		if (rippleColor == null)
-			rippleColor = makePressColor();
-		paint.setColor(rippleColor);
+		if (rippleColorT == null)
+			rippleColorT = makePressColor();
+		paint.setColor(rippleColorT);
 		x = (xRippleOrigin == null) ? x : xRippleOrigin;
 		y = (yRippleOrigin == null) ? y : yRippleOrigin;
 		canvas.drawCircle(x, y, radius, paint);
 		if (radius > getHeight() / rippleSize)
-			radius += rippleSpeed;
+			radius += rippleSpeedT;
 		if (radius >= getWidth()) {
 			x = -1;
 			y = -1;
@@ -188,8 +188,8 @@ public class LayoutRipple extends CustomView {
 		onClickListener = l;
 	}
 
-	public void setRippleColor(int rippleColor) {
-		this.rippleColor = rippleColor;
+	public void setrippleColorT(int rippleColorT) {
+		this.rippleColorT = rippleColorT;
 	}
 
 	public void setxRippleOrigin(Float xRippleOrigin) {

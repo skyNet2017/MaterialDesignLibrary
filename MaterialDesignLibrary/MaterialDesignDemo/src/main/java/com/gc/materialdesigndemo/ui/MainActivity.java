@@ -109,9 +109,9 @@ public class MainActivity extends Activity implements OnColorSelectedListener{
 		    	layoutRipple.setxRippleOrigin(ViewHelper.getX(v)+v.getWidth()/2);
 		    	layoutRipple.setyRippleOrigin(ViewHelper.getY(v)+v.getHeight()/2);
 		    	
-		    	layoutRipple.setRippleColor(Color.parseColor("#1E88E5"));
+		    	layoutRipple.setrippleColorT(Color.parseColor("#1E88E5"));
 		    	
-		    	layoutRipple.setRippleSpeed(30);
+		    	layoutRipple.setrippleSpeedT(30);
 			}
 		});
     	

@@ -20,7 +20,7 @@ public class ButtonFloatSmall extends ButtonFloat {
 	}
 	
 	protected void setDefaultProperties(){
-		rippleSpeed = Utils.dpToPx(2, getResources());
+		rippleSpeedT = Utils.dpToPx(2, getResources());
 		rippleSize = 10;		
 		// Min size
 		setMinimumHeight(Utils.dpToPx(sizeRadius*2, getResources()));

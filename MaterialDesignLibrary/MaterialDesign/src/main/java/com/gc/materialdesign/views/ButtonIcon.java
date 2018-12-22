@@ -20,7 +20,7 @@ public class ButtonIcon extends ButtonFloat {
 		} catch (NoSuchMethodError e) {
 			setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.transparent)));
 		}
-		rippleSpeed = Utils.dpToPx(2, getResources());
+		rippleSpeedT = Utils.dpToPx(2, getResources());
 		rippleSize = Utils.dpToPx(5, getResources());
 	}
 	
@@ -42,8 +42,8 @@ public class ButtonIcon extends ButtonFloat {
 			paint.setColor(makePressColor());
 			canvas.drawCircle(x, y, radius, paint);
 			if(radius > getHeight()/rippleSize)
-				radius += rippleSpeed;
-			if(radius >= getWidth() / 2 - rippleSpeed){
+				radius += rippleSpeedT;
+			if(radius >= getWidth() / 2 - rippleSpeedT){
 				x = -1;
 				y = -1;
 				radius = getHeight()/rippleSize;

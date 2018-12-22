@@ -74,7 +74,7 @@ public class ButtonFlat extends Button {
 			paint.setColor(makePressColor());
 			canvas.drawCircle(x, y, radius, paint);
 			if(radius > getHeight()/rippleSize)
-				radius += rippleSpeed;
+				radius += rippleSpeedT;
 			if(radius >= getWidth()){
 				x = -1;
 				y = -1;

@@ -24,9 +24,9 @@ public abstract class Button extends CustomView {
 	int minWidth;
 	int minHeight;
 	int background;
-	float rippleSpeed = 12f;
+	float rippleSpeedT = 12f;
 	int rippleSize = 3;
-	Integer rippleColor;
+	Integer rippleColorT;
 	OnClickListener onClickListener;
 	boolean clickAfterRipple = true;
 	int backgroundColor = Color.parseColor("#1E88E5");
@@ -39,8 +39,8 @@ public abstract class Button extends CustomView {
 				"animate", true);
 		setAttributes(attrs);
 		beforeBackground = backgroundColor;
-		if (rippleColor == null)
-			rippleColor = makePressColor();
+		if (rippleColorT == null)
+			rippleColorT = makePressColor();
 	}
 
 	protected void setDefaultProperties() {
@@ -123,10 +123,10 @@ public abstract class Button extends CustomView {
 		canvas.drawARGB(0, 0, 0, 0);
 		Paint paint = new Paint();
 		paint.setAntiAlias(true);
-		paint.setColor(rippleColor);
+		paint.setColor(rippleColorT);
 		canvas.drawCircle(x, y, radius, paint);
 		if (radius > getHeight() / rippleSize)
-			radius += rippleSpeed;
+			radius += rippleSpeedT;
 		if (radius >= getWidth()) {
 			x = -1;
 			y = -1;
@@ -167,18 +167,18 @@ public abstract class Button extends CustomView {
 			GradientDrawable shape = (GradientDrawable) layer
 					.findDrawableByLayerId(R.id.shape_bacground);
 			shape.setColor(backgroundColor);
-			rippleColor = makePressColor();
+			rippleColorT = makePressColor();
 		} catch (Exception ex) {
 			// Without bacground
 		}
 	}
 
-	public void setRippleSpeed(float rippleSpeed) {
-		this.rippleSpeed = rippleSpeed;
+	public void setrippleSpeedT(float rippleSpeedT) {
+		this.rippleSpeedT = rippleSpeedT;
 	}
 
-	public float getRippleSpeed() {
-		return this.rippleSpeed;
+	public float getrippleSpeedT() {
+		return this.rippleSpeedT;
 	}
 
 	public void setText(String text) {
